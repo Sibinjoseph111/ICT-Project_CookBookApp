@@ -14,6 +14,11 @@ export class ListItemComponent implements OnInit {
     quantity: String
   }
 
+  item;
+
+  editMode = false;
+  quantity =0;
+
   constructor(private authService: UserService) { }
 
   ngOnInit(): void {
@@ -23,6 +28,18 @@ export class ListItemComponent implements OnInit {
   onItemDelete(){
     this.authService.listItemSelected.next(this.listItem);
     this.authService.removeFromShoppingList();
+  }
+
+  onItemEdit(){
+    this.editMode = !this.editMode
+    this.item = this.listItem;
+  }
+
+  onItemUpdate(){
+    this.authService.listItemSelected.next(this.listItem);
+    this.authService.updateListItem();
+    this.editMode = !this.editMode;
+
   }
 
 }

@@ -211,6 +211,32 @@ export class UserService {
     })
   }
 
+  updateListItem(){
+    var id;
+    var item;
+
+    this.user.pipe(take(1)).subscribe(user =>{
+      id = user._id;
+    });
+
+    this.listItemSelected.subscribe((listItem: ShoppingListItem)=>{
+
+      if(listItem) item = listItem;
+
+      console.log(item);
+
+    });
+
+    return this.http.post('http://localhost:3000/user/updateList',{
+      id,
+      item
+    }).subscribe(resData=>{
+      this.listItemSelected.next(null);
+      // this.listDeleted.next(true);
+    })
+
+  }
+
   private handleAuthentication(id, name, email, password, tokens, favorites, shoppingList){
     const user = new UserModel(id, name, email, password, tokens, favorites,shoppingList);
     this.user.next(user); 

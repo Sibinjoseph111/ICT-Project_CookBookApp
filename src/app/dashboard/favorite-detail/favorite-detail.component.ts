@@ -21,4 +21,8 @@ export class FavoriteDetailComponent implements OnInit {
 
   }
 
+  onAddToShoppingList(){
+    this.authService.addToShoppingList();
+  }
+
 }
