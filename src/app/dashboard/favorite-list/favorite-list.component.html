@@ -1,0 +1,9 @@
+<div class="row mx-auto">
+    <div class="col-xl-12">
+        <h3 class="mt-4">Favorite Recipes</h3>
+        <div class="card mt-3 p-2 shadow-sm mb-5 bg-white rounded" *ngIf="recipes">
+            <app-favorite-item *ngFor="let recipeEl of recipes"
+            [recipe] = "recipeEl"></app-favorite-item>
+        </div>
+    </div>
+</div>

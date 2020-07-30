@@ -1,0 +1,14 @@
+<app-app-header></app-app-header>
+<div class="row mx-auto">
+    <div class="col-md-5">
+        <app-favorite-list></app-favorite-list>
+    </div>
+    <div class="col-md-7">
+        <app-favorite-detail
+        *ngIf="selectedRecipe; else infoText"
+        [recipe]="selectedRecipe"></app-favorite-detail>
+        <ng-template #infoText>
+            <p style="margin-top: 72px; margin-left: 50px;">Please select a recipe!</p>
+        </ng-template>
+    </div>
+</div>

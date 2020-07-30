@@ -1,0 +1,10 @@
+<a style="color: black; border: 0px; cursor: pointer;" class="list-group-item clearfix p-2" (click)="onRecipeSelected()" routerLinkActive="active">
+    <span class="float-left m-2">
+        <img src="{{recipe.imageURL}}" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 80px; width: 120px;">
+    </span>
+    <div class="mt-3">
+        <h4 class="list-group-item-heading"> {{recipe.name}} </h4>
+        <p class="list-group-item-text"  >{{recipe.description}}</p>
+    </div>
+    <hr class="mt-5">
+  </a>

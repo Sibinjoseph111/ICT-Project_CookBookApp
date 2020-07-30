@@ -1,0 +1,53 @@
+<section class="w3l-login-6">
+    <div class="login-hny">
+        <div class="form-content">
+            <div class="form-right">
+                <div class="overlay">
+                    <div class="grid-info-form">
+                        <h2>COOK BOOK </h2>
+                        <p>Cookbook app offers you many easy and tasty recipes. These include salads, drinks, appetizers, stews, soups, casseroles, cakes and desserts.<br>Start cooking tasty recipes with the Cookbook app today.</p>
+                        <a routerLink="/recipes" class="read-more-1 btn">Get Started</a>
+                    </div>
+                
+                </div>
+            </div>
+            <div class="form-left">
+                <div class="middle">
+                    <h4>{{isLoginMode? "Welcome Back": "Join Us"}}</h4>
+                    <p>{{isLoginMode? "Login to your account":"Create Your Account, It's Free."}}</p>
+                </div>
+
+                <div class="alert alert-danger" *ngIf="error">
+                    <p style="color: crimson;">{{error}}</p>
+                </div>
+                
+                <form method="post" class="signin-form" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+                        <div class="form-input form-group" *ngIf="!isLoginMode">
+                            <label>Name</label>
+                            <input type="text" ngModel name="username" placeholder="" required />
+                        </div>
+                        <div class="form-input form-group">
+                            <label>Email</label>
+                            <input type="email" ngModel name="email" placeholder="" required />
+                        </div>
+                        <div class="form-input form-group">
+                            <label>Password</label>
+                            <input type="password" ngModel name="password" placeholder="" required />
+                        </div>
+                        
+                        <!-- <label class="container">I agree to <a href="#">Conditions</a> of Use and <a href="#">Privacy</a>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label> -->
+                        <button class="button" type="submit" [disabled]="!authForm.valid">{{isLoginMode? 'Login': 'Create Account'}}</button>
+
+                        <div style="text-align: center; margin-top: 10px;"> 
+                            <a class="button"(click)="onSwitchMode()">{{isLoginMode? "Don't have an account? Sign up": 'Already have an account? Login'}}</a>
+                        </div>
+                </form>
+            </div>
+            
+        </div>
+        
+    </div>
+</section>

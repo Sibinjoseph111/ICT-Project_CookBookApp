@@ -1,0 +1,9 @@
+<div class="row mx-auto">
+    <div class="col-xl-12">
+        <h3 class="mt-4">Recipes</h3>
+        <div class="card mt-3 p-2 shadow-sm mb-5 bg-white rounded">
+            <app-recipe-item *ngFor="let recipeEl of recipes"
+            [recipe] = "recipeEl"></app-recipe-item>
+        </div>
+    </div>
+</div>
